@@ -1,0 +1,209 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  transition-duration: 0.5s;
+}
+body {
+  background-color: var(--bodyBackground);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--bodyColor);
+  font-size: 20px;
+  font-family: "League Spartan";
+  font-weight: 700;
+}
+body.theme0 {
+  --bodyBackground: hsl(222, 26%, 31%);
+  --buttonContBackground: hsl(223, 31%, 20%);
+  --inputBackground:hsl(223, 31%, 20%);
+  --delButtonBackground: hsl(225, 21%, 49%);
+  --delButtonShadow: hsl(224, 28%, 35%);
+  --equalsBackground: hsl(6, 63%, 50%);
+  --equalsShadow: hsl(6, 70%, 34%);
+  --buttonBackground: hsl(0, 0%, 90%);
+  --buttonShadow: hsl(28, 16%, 65%);
+  --bodyColor: hsl(0, 100%, 100%);
+  --delButtonColor: hsl(0, 100%, 100%);
+  --equalsColor: hsl(0, 100%, 100%);
+  --buttonColor:hsl(221, 14%, 31%);
+  --buttonActiveBackground: white;
+  --delButtonActiveBackground: hsl(225, 51%, 72%);
+  --equaslActiveBackground: hsl(6, 95%, 62%);
+}
+body.theme1 {
+  --bodyBackground: hsl(0, 0%, 90%);
+  --buttonContBackground: hsl(0, 5%, 81%);
+  --inputBackground:hsl(0, 0%, 93%);
+  --delButtonBackground: hsl(185, 42%, 37%);
+  --delButtonShadow: hsl(185, 58%, 25%);
+  --equalsBackground: hsl(25, 98%, 40%);
+  --equalsShadow: hsl(25, 99%, 27%);
+  --buttonBackground: hsl(0, 0%, 90%);
+  --buttonShadow: hsl(35, 11%, 61%);
+  --bodyColor: hsl(60, 10%, 19%);
+  --equalsColor: hsl(0, 100%, 100%);
+  --buttonColor:hsl(60, 10%, 19%);
+  --delButtonColor: hsl(0, 100%, 100%);
+  --delButtonActiveBackground: hsl(199, 65%, 62%);
+  --equaslActiveBackground: hsl(20, 100%, 58%);
+  --buttonActiveBackground: white;
+}
+body.theme2 {
+  --bodyBackground: hsl(268, 75%, 9%);
+  --buttonContBackground: hsl(268, 71%, 12%);
+  --inputBackground:hsl(268, 71%, 12%);
+  --delButtonBackground: hsl(281, 89%, 26%);
+  --delButtonShadow: hsl(285, 91%, 52%);
+  --equalsBackground: hsl(176, 100%, 44%);
+  --equalsShadow: hsl(177, 92%, 70%);
+  --buttonBackground: hsl(268, 47%, 21%);
+  --buttonShadow: hsl(290, 70%, 36%);
+  --bodyColor: hsl(52, 100%, 62%);
+  --equalsColor: hsl(198, 20%, 13%);
+  --buttonColor:hsl(52, 100%, 62%);
+  --delButtonColor: hsl(0, 100%, 100%);
+  --delButtonActiveBackground: hsl(281, 95%, 36%);
+  --equaslActiveBackground: hsl(177, 92%, 70%);
+  --buttonActiveBackground: hsl(268, 54%, 48%);
+}
+.cont {
+  margin-top: 12rem;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.button-cont {
+  padding: 1rem;
+  background-color: var(--buttonContBackground);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+  border-radius: 0.5rem;
+}
+button {
+  background-color: var(--buttonBackground);
+  color: var(--buttonColor);
+  padding: 0.5rem 1rem 0.2rem;
+  font-size: 32px;
+  border-radius: 0.5rem;
+  font-family: "League Spartan";
+  font-weight: 700;
+  box-shadow: 0 0.2rem var(--buttonShadow);
+}
+button:hover,
+button:active {
+  cursor: pointer;
+  background-color: var(--buttonActiveBackground);
+}
+
+.del-button {
+  background-color: var(--delButtonBackground);
+  color: var(--delButtonColor);
+  font-size: 20px;
+  box-shadow: 0 0.2rem var(--delButtonShadow);
+}
+.reset-button {
+  background-color: var(--delButtonBackground);
+  color: var(--delButtonColor);
+  grid-row: 5;
+  grid-column: 1/3;
+  font-size: 20px;
+  box-shadow: 0 0.2rem var(--delButtonShadow);
+}
+.del-button:hover,
+.del-button:active,
+.reset-button:hover,
+.reset-button:active {
+  background-color: var(--delButtonActiveBackground);
+}
+.equals-button {
+  background-color: var(--equalsBackground);
+  color: var(--equalsColor);
+  grid-row: 5;
+  grid-column: 3/5;
+  box-shadow: 0rem 0.2rem var(--equalsShadow);
+}
+.equals-button:hover,
+.equals-button:active {
+  background-color: var(--equaslActiveBackground);
+}
+.input-field {
+  width: 100%;
+  font-size: 3.2rem;
+  background-color: var(--inputBackground);
+  color: var(--bodyColor);
+  box-sizing: border-box;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
+}
+.top-part {
+  width: 100%;
+  position: relative;
+}
+
+.theme-grid {
+  position: absolute;
+  right:0;
+  top:0;
+  display: grid;
+  column-gap: 1.5rem;
+  font-size: 0.8rem;
+}
+.theme-grid > span {
+  grid-row: 2;
+  grid-column: 1;
+}
+.theme-numbers {
+  grid-row: 1;
+  grid-column: 2;
+  display: flex;
+  flex-direction: row;
+  width: 3.5rem;
+  justify-content: space-evenly;
+}
+.theme-switch-field {
+  grid-column: 2;
+  grid-row: 2;
+  background-color: var(--buttonContBackground);
+  border-radius: 0.5rem;
+  height: 0.8rem;
+  padding: 0.2rem;
+}
+.theme-switch {
+  background-color: var(--equalsBackground);
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  transition-duration: 0.3s;
+}
+.theme-switch.theme0 {
+  transform: translateX(0);
+}
+.theme-switch.theme1 {
+  transform: translateX(1rem);
+}
+.theme-switch.theme2 {
+  transform: translateX(2rem);
+}
+
+@media(width<1000px)
+{
+  .cont{
+    margin:8rem 0 0 0 ;
+    width: 80%;
+  }
+  .button-cont{
+    gap:1rem;
+    height: 25rem;
+  }
+  .button{
+    padding:0.5rem 0;
+  }
+}
