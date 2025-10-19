@@ -38,16 +38,17 @@ const calculate = () => {
   }
   expression = expression.substring(1, expression.length - 1);
 
+  let count = 0;
   for (let i = 0; i < expression.length; i++) {
     if ("/x".includes(expression[i])) {
-      myArgumnets[0] = handleOperation(
+      myArgumnets[count] = handleOperation(
         expression[i],
-        myArgumnets[0],
-        myArgumnets[1]
+        myArgumnets[count],
+        myArgumnets[count + 1]
       );
-      myArgumnets[1] = null;
+      myArgumnets[count + 1] = null;
       myArgumnets = isNotNull(myArgumnets);
-    }
+    } else if ("+-".includes(expression[i])) count++;
   }
 
   for (let i = 0; i < expression.length; i++) {
@@ -62,7 +63,7 @@ const calculate = () => {
     }
   }
 
-  inputField.innerHTML = myArgumnets[0];
+  inputField.innerHTML = Math.round(myArgumnets[0] * 100000) / 100000.0;
 };
 
 const deleteLastSymbol = () => {
@@ -105,23 +106,23 @@ const handleButton = (button) => {
   if (numbersList.includes(button.innerHTML)) handleNumber(button.innerHTML);
   if (button.innerHTML == ".") handleDot();
 };
-const changeTheme=()=>{
-  body.classList.remove("theme"+theme);
-  themeSwitch.classList.remove("theme"+theme);
+const changeTheme = () => {
+  body.classList.remove("theme" + theme);
+  themeSwitch.classList.remove("theme" + theme);
   theme++;
-  theme%=3;
-  body.classList.add("theme"+theme);
-  themeSwitch.classList.add("theme"+theme);
-}
+  theme %= 3;
+  body.classList.add("theme" + theme);
+  themeSwitch.classList.add("theme" + theme);
+};
 
-const body=document.body;
+const body = document.body;
 const operatorsList = "x/-+";
 const operatorSeparators = /[x+/-]/;
 const numberSeparators = /[1234567890.]/;
 const numbersList = "1234567890";
-let theme=0;
-let themeSwitchField=document.getElementById("themeSwitchField");
-let themeSwitch=document.getElementById("themeSwitch");
+let theme = 0;
+let themeSwitchField = document.getElementById("themeSwitchField");
+let themeSwitch = document.getElementById("themeSwitch");
 let delButton = document.getElementById("delButton");
 let equalsButton = document.getElementById("equalsButton");
 let inputField = document.getElementById("inputField");
@@ -142,4 +143,4 @@ for (let i = 0; i < buttons.length; i++) {
 resetButton.addEventListener("click", reset);
 equalsButton.addEventListener("click", calculate);
 delButton.addEventListener("click", deleteLastSymbol);
-themeSwitchField.addEventListener("click",changeTheme)
+themeSwitchField.addEventListener("click", changeTheme);
