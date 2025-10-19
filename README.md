@@ -1,0 +1,1 @@
+This is a fully functional calculator that can handle multiple operations. There is a switch that can change themes up to 3 times. Written using JS,CSS,HTML 
